@@ -2,8 +2,9 @@
   "name": "js-logger",
   "version": "1.0.0",
   "description": "a javascript logger similiar to python logging",
-  "main": "logger.js",
+  "main": "src/logger.js",
   "scripts": {
+    "dev": "node src/logger.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Denys Menfredy",
