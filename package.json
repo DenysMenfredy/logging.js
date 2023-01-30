@@ -1,0 +1,13 @@
+{
+  "name": "js-logger",
+  "version": "1.0.0",
+  "description": "a javascript logger similiar to python logging",
+  "main": "logger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Denys Menfredy",
+  "license": "ISC"
+}
+
+
