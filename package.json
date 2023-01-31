@@ -1,5 +1,5 @@
 {
-  "name": "js-logger",
+  "name": "py-logging.js",
   "version": "1.0.0",
   "description": "a javascript logger similiar to python logging",
   "main": "src/logger.js",

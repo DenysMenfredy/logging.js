@@ -15,26 +15,28 @@ class Logger {
     info(text) {
         const date = new Date().toLocaleDateString('pt-Br');
         const hour = new Date().toLocaleTimeString('pt-Br');
-        const log = `${date} - ${hour}: ${text}`;
+        const log = `${date} - ${hour} ${this.module ? "-" : ""} ${this.module ? this.module.split(".").at(0) : ""}: ${text}`;
         this.#writeToFile(log);
         return console.info(log);
     }
     warning(text) {
         const date = new Date().toLocaleDateString('pt-Br');
         const hour = new Date().toLocaleTimeString('pt-Br');
-        const log = `${date} - ${hour}: ${text}`;
+        const log = `${date} - ${hour} ${this.module ? "-" : ""} ${this.module ? this.module.split(".").at(0) : ""}: ${text}`;
         this.#writeToFile(log);
         return console.warn(log);
     }
     error(text) {
         const date = new Date().toLocaleDateString('pt-Br');
         const hour = new Date().toLocaleTimeString('pt-Br');
-        const log = `${date} - ${hour}: ${text}`;
+        const log = `${date} - ${hour} ${this.module ? "-" : ""} ${this.module ? this.module.split(".").at(0) : ""}: ${text}`;
         this.#writeToFile(log);
         return console.info(log);
     }
-    getLogger(moduleName) {
-        return new Logger()
+    static getLogger(moduleName) {
+        let logger = new Logger();
+        logger.module = moduleName;
+        return logger;
     }
     basicConfig(filename, level) {
         const splitedFilename = filename.split("/");
@@ -66,4 +68,12 @@ logger.info("Oii");
 logger.warning("WARNING");
 setTimeout(() => {
     logger.error("ERROR");
+}, 3000);
+
+const logger2 = Logger.getLogger(path.basename(__filename));
+logger2.basicConfig(filename="logs2.log", "INFO");
+logger2.info("Oii");
+logger2.warning("WARNING");
+setTimeout(() => {
+    logger2.error("ERROR");
 }, 3000);
